@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Sum of Three Numbers</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            padding: 20px;
+        }
+        .calculator {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            width: 100%;
+            max-width: 400px;
+            backdrop-filter: blur(10px);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+            font-size: 2em;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        td {
+            padding: 15px 10px;
+            text-align: left;
+        }
+        td label {
+            font-weight: bold;
+            color: #555;
+            display: block;
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: border-color 0.3s, box-shadow 0.3s;
+            box-sizing: border-box;
+        }
+        input[type="number"]:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 10px rgba(102, 126, 234, 0.3);
+        }
+        input[type="button"] {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        input[type="button"]:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
+        }
+        input[type="button"]:active {
+            transform: translateY(0);
+        }
+        #result {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #28a745;
+            min-height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            border: 2px solid #e9ecef;
+        }
+        .error {
+            color: #dc3545 !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <h1>Sum of Three Numbers</h1>
+        <table>
+            <tr>
+                <td><label for="fno">First Number:</label></td>
+                <td><input type="number" id="fno" placeholder="Enter first number"></td>
+            </tr>
+            <tr>
+                <td><label for="sno">Second Number:</label></td>
+                <td><input type="number" id="sno" placeholder="Enter second number"></td>
+            </tr>
+            <tr>
+                <td><label for="tno">Third Number:</label></td>
+                <td><input type="number" id="tno" placeholder="Enter third number"></td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: center;">
+                    <input type="button" value="Calculate Sum" onclick="sum()">
+                </td>
+            </tr>
+        </table>
+        <div id="result">Result will appear here</div>
+    </div>
+
+    <script>
+        function sum() {
+            const a = parseFloat(document.getElementById("fno").value) || 0;
+            const b = parseFloat(document.getElementById("sno").value) || 0;
+            const c = parseFloat(document.getElementById("tno").value) || 0;
+            
+            const total = a + b + c;
+            const resultDiv = document.getElementById("result");
+            
+            if (isNaN(total)) {
+                resultDiv.textContent = "Please enter valid numbers!";
+                resultDiv.className = "error";
+            } else {
+                resultDiv.textContent = `Sum: ${total}`;
+                resultDiv.className = "";
+            }
+        }
+    </script>
+</body>
+</html>
