@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sum Of Three </title>
+</head>
+<body>
+    <table border="0" align="center" width="30%">
+        <tr>
+            <td>First Num :</td>
+            <td><input type="text" id="fno"></td>
+        </tr>
+        <tr>
+            <td>Second Num :</td>
+            <td><input type="text" id="sno"></td>
+    
+        </tr>
+        <tr>
+            <td colspan="2" align="center">
+                <input type="button" value="Sum" onclick="sum()"/>
+            </td>
+        </tr>
+    </table>
+
+    <script>
+        function sum(){
+            let a = document.getElementById("fno").value;
+            let b = document.getElementById("sno").value;
+            
+
+            let d = parseInt(a) + parseInt(b);
+
+            alert("sum of two no numbers is " + d);
+        }
+    </script>
+    
+</body>
+</html>
